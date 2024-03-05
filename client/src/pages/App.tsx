@@ -1,12 +1,11 @@
 
-import './App.css'
 
 function App() {
  
 
   return (
     <>
-     
+     <h1>Startsidan</h1>
     </>
   )
 }
