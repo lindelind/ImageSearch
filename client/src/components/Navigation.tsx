@@ -4,8 +4,9 @@ import LogoutButton from "./LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
 import userimg from "../img/user.png";
 
+
 export const Navigation = () => {
-  const { isAuthenticated, user } = useAuth0();
+   const { isAuthenticated, user } = useAuth0();
   const [showDropdown, setShowDropdown] = useState(false);
 
   const handleDropdownToggle = () => {
@@ -24,7 +25,7 @@ export const Navigation = () => {
               className={`user ${showDropdown ? "clicked" : ""}`}
               onClick={handleDropdownToggle}
             >
-              Inloggad som <b>{user.name}</b>{" "}
+              Inloggad som <b>{user?.name}</b>{" "}
               <img className="userimg" src= {userimg} alt="user" />
             </p>
             {showDropdown && (
