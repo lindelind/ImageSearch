@@ -1,20 +1,50 @@
 
+.navigation {
+  display: flex;
+  gap: 15px;
+  font-size: 20px;
+}
 
-nav {
+.userimg {
+    width: 15px;
+}
 
-    display: flex;
-    justify-content: flex-end;
-    gap: 15px;
-    font-size: 20px;
-    
-    a {
-        text-decoration: none;
-        text-transform: uppercase;
-        color: black;
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+}
 
-        &:hover {
-            background-color: rgb(177, 174, 177);
-        }
-    }
+a:hover {
+  background-color: rgb(250, 179, 250);
+}
 
+.logged-in,
+.not-logged-in {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-container {
+  position: relative;
+}
+
+.user {
+  margin: 0;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  font-size: 15px;
+  display: none;
+  position: absolute;
+  top: 100%; 
+  margin-left: 50px;
+  background-color: white;
+  z-index: 1;
+}
+
+.clicked + .dropdown-content {
+  display: block;
 }

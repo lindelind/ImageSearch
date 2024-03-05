@@ -4,7 +4,7 @@ import "./index.scss";
 import { router } from "./Router";
 import { RouterProvider } from "react-router-dom";
 import { Auth0Provider } from "@auth0/auth0-react";
-import App from "./pages/App";
+
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -17,6 +17,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     >
       <RouterProvider router={router} />
     </Auth0Provider>
-    ,
   </React.StrictMode>
 );
