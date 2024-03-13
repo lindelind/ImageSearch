@@ -3,21 +3,24 @@
   display: flex;
   gap: 15px;
   font-size: 20px;
-}
 
-.userimg {
-    width: 15px;
-}
-
-a {
+  a {
   text-decoration: none;
   text-transform: uppercase;
   color: black;
 }
 
-a:hover {
-  background-color: rgb(250, 179, 250);
 }
+
+.user-img, .favorites-img {
+    width: 18px;
+    margin-left: 4px;
+
+    &:hover {
+  transform: scale(1.2);
+}
+}
+
 
 .logged-in,
 .not-logged-in {
@@ -32,19 +35,19 @@ a:hover {
 .user {
   margin: 0;
   font-size: 15px;
-  cursor: pointer;
+  // cursor: pointer;
 }
 
-.dropdown-content {
-  font-size: 15px;
-  display: none;
-  position: absolute;
-  top: 100%; 
-  margin-left: 50px;
-  background-color: white;
-  z-index: 1;
-}
+// .dropdown-content {
+//   font-size: 15px;
+//   display: none;
+//   position: absolute;
+//   top: 100%; 
+//   margin-left: 50px;
+//   background-color: white;
+//   z-index: 1;
+// }
 
-.clicked + .dropdown-content {
-  display: block;
-}
+// .clicked + .dropdown-content {
+//   display: block;
+// }

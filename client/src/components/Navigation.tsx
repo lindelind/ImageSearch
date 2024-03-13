@@ -1,18 +1,14 @@
-import { useState } from "react";
+
 import { NavLink } from "react-router-dom";
 import LogoutButton from "./LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
-import userimg from "../img/user.png";
+import searchimg from "../img/search.png";
+import heartimg from "../img/favorite.png"
 
 
 export const Navigation = () => {
    const { isAuthenticated, user } = useAuth0();
-  const [showDropdown, setShowDropdown] = useState(false);
-
-  const handleDropdownToggle = () => {
-    setShowDropdown(!showDropdown);
-  };
-
+  
   return (
     <nav
       className={`navigation ${isAuthenticated ? "logged-in" : "not-logged-in"}`}
@@ -21,20 +17,15 @@ export const Navigation = () => {
         <>
           <LogoutButton />
           <div className="user-container">
-            <p
-              className={`user ${showDropdown ? "clicked" : ""}`}
-              onClick={handleDropdownToggle}
-            >
+            <p className="user">
               Inloggad som <b>{user?.name}</b>{" "}
-              <img className="userimg" src= {userimg} alt="user" />
+              <NavLink to={"/"}>
+                <img className="user-img" src={searchimg} alt="user" />
+              </NavLink>
+              <NavLink to={"/favorites"}>
+                <img className="favorites-img" src={heartimg} alt="user" />
+              </NavLink>
             </p>
-            {showDropdown && (
-              <div className="dropdown-content">
-                <NavLink to={"/"}>Start</NavLink>
-                <br />
-                <NavLink to={"/favorites"}>Favoriter</NavLink>
-              </div>
-            )}
           </div>
         </>
       ) : (

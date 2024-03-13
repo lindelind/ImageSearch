@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "./pages/App";
-import { Favorites } from "./pages/Favorites";
+import {Favorites} from "./pages/Favorites";
 import { Layout } from "./pages/Layout";
 import { NotFound } from "./pages/NotFound";
 

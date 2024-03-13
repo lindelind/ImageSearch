@@ -1,37 +1,42 @@
-import { useAuth0 } from "@auth0/auth0-react";
+import { User, useAuth0 } from "@auth0/auth0-react";
 import LoginButton from "../components/LoginButton";
-import { useState } from "react";
+import {useEffect, useState } from "react";
 import axios from "axios";
+import searchimg from "../img/search.png"
+import heartimg from "../img/heart.png"
+import { UserAuthentication, searchInformation, spelling, items } from "../models/types";
 
-export interface User {
-  isAuthenticated: boolean;
-  user?: {
-    name: string;
-  }
-}
 
-export interface SearchResultData {
-  title: string;
-  snippet: string;
-  link: string;
-}
+
 
 function App() {
-  const { isAuthenticated, user } = useAuth0<User>();
-  const [searchResults, setSearchResults] = useState<SearchResultData[]>([]);
+  const { isAuthenticated} = useAuth0<UserAuthentication>();
+  const { user } = useAuth0<User>();
+  const [searchTime, setSearchTime] = useState<searchInformation>();
+  const [didYouMean, setDidYouMean] = useState<spelling>();
+  const [searchResults, setSearchResults] = useState<items[]>([]);
   const [inputSearch, setInputSearch] = useState<string>("");
-  const apiKey = "AIzaSyC3EuUt2LVCkEpJwKvHd0RaQfTamuWhByA"; 
-  const searchEngineId = "73c2ff171703f4f27"; 
+  const [searchCorrectedQuery, setSearchCorrectedQuery] = useState(false);
+   
+  const apiKey = import.meta.env.VITE_GOOGLE_API_KEY
+  const searchEngineId = import.meta.env.VITE_SEARCH_ENGINE_ID
 
 
-  const handleSearch = async () => {
+   const handleSearch = async () => {
     try {
       const response = await axios.get(
-        `https://www.googleapis.com/customsearch/v1?q=${inputSearch}&key=${apiKey}&cx=${searchEngineId}`
+        `https://www.googleapis.com/customsearch/v1?q=${inputSearch}&searchType=image&key=${apiKey}&cx=${searchEngineId}`
       );
 
       if (response.status === 200) {
         setSearchResults(response.data.items || []);
+        console.log(response.data.items)
+        setSearchTime(response.data.searchInformation)
+        console.log(response.data.searchInformation)
+        setDidYouMean(response.data.spelling)
+        console.log(response.data.spelling)
+        setInputSearch("");
+        
       } else {
         console.error("Error fetching search results");
       }
@@ -40,30 +45,84 @@ function App() {
     }
   };
 
+
+    useEffect(() => {
+      if (searchCorrectedQuery) {
+        handleSearch();
+        setSearchCorrectedQuery(false);
+      }
+    }, [searchCorrectedQuery]);
+
+    const showDidYouMean = () => {
+      if (didYouMean === undefined) {
+        return "";
+      } else {
+        return (
+          <p>
+            Did you mean:{" "}
+            <a
+              href="#"
+              onClick={() => {
+                setInputSearch(didYouMean.correctedQuery);
+                setSearchCorrectedQuery(true);
+              }}
+            >
+              {didYouMean.correctedQuery}
+            </a>
+          </p>
+        );
+      }
+    };
+  
+  const showSearchTime = () => {
+    if (searchTime === undefined) {
+      return "";
+    } else {
+      return <p>SearchTime: {searchTime.formattedSearchTime}</p>;
+    }
+  };
+
   return (
     <>
       {isAuthenticated ? (
         <div>
           <h3> Välkommen {user?.name}!</h3>
+          <h1 className="color-h1">
+            Image Search <img className="search-img" src={searchimg} alt="" />
+          </h1>
 
           <div>
             <input
               type="text"
               value={inputSearch}
               onChange={(e) => setInputSearch(e.target.value)}
-              placeholder="Search the web"
+              placeholder="Search image"
             />
-            <button onClick={handleSearch}>Search</button>
-
-            {searchResults.map((result) => (
-              <div key={result.link}>
-                <h3>{result.title}</h3>
-                <p>{result.snippet}</p>
-                <a href={result.link} target="_blank" rel="noopener noreferrer">
-                  {result.link}
-                </a>
-              </div>
-            ))}
+            <button className="search-btn" onClick={handleSearch}>
+              Search
+            </button>
+            <h3>{showDidYouMean()}</h3>
+            <p>{showSearchTime()}</p>
+            <section id="images">
+              {searchResults.map((result) => (
+                <div key={result.link}>
+                  <div className="img-container">
+                    <a
+                      href={result.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        className="image"
+                        src={result.link}
+                        alt={result.title}
+                      />
+                    </a>
+                  </div>
+                  <img className="favorite-btn" src={heartimg}/>
+                </div>
+              ))}
+            </section>
           </div>
         </div>
       ) : (

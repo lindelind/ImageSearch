@@ -1,13 +1,26 @@
-
-
 const express = require("express");
-const app = express();
-const port = 3001;
+const fs = require("fs").promises;
+const path = require("path");
 
-app.get("/", (req, res) => {
-  res.send("Hejhej detta är rooten");
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+
+app.get("/api/favorites", async (req, res) => {
+  try {
+    
+    const data = await fs.readFile(".favorites.json", "utf-8");
+    // console.log(data); 
+    const favorites = JSON.parse(data);
+
+    res.setHeader("Content-Type", "application/json");
+    res.status(200).json(favorites);
+  } catch (error) {
+    console.error("Error reading favorites file:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
-app.listen(port, () => {
-  console.log(`Server up and running på port ${port}.`);
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
