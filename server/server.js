@@ -2,7 +2,7 @@ const express = require("express");
 const fs = require("fs").promises;
 require("dotenv").config();
 const cors = require("cors");
-const app = express();
+const app = express(); 
 const PORT = process.env.PORT || 3001;
 
 app.use(cors({ origin: "http://localhost:5173" }));
