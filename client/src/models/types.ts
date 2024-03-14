@@ -6,7 +6,6 @@ export interface UserAuthentication {
 export interface items {
   link: string;
   title: string;
-  snippet: string;
   image: {
     byteSize: number;
   }
@@ -32,7 +31,8 @@ export interface FavoriteImage {
   url: string;
 }
 
-export interface FavoriteUser {
-  email: string;
+export interface UserFavorites {
+  user: string;
   favoriteImages: FavoriteImage[];
 }
+

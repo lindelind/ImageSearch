@@ -7,8 +7,6 @@ import heartimg from "../img/heart.png"
 import { UserAuthentication, searchInformation, spelling, items } from "../models/types";
 
 
-
-
 function App() {
   const { isAuthenticated} = useAuth0<UserAuthentication>();
   const { user } = useAuth0<User>();
@@ -17,6 +15,7 @@ function App() {
   const [searchResults, setSearchResults] = useState<items[]>([]);
   const [inputSearch, setInputSearch] = useState<string>("");
   const [searchCorrectedQuery, setSearchCorrectedQuery] = useState(false);
+  
    
   const apiKey = import.meta.env.VITE_GOOGLE_API_KEY
   const searchEngineId = import.meta.env.VITE_SEARCH_ENGINE_ID
@@ -53,26 +52,26 @@ function App() {
       }
     }, [searchCorrectedQuery]);
 
-    const showDidYouMean = () => {
-      if (didYouMean === undefined) {
-        return "";
-      } else {
-        return (
-          <p>
-            Did you mean:{" "}
-            <a
-              href="#"
-              onClick={() => {
-                setInputSearch(didYouMean.correctedQuery);
-                setSearchCorrectedQuery(true);
-              }}
-            >
-              {didYouMean.correctedQuery}
-            </a>
-          </p>
-        );
-      }
-    };
+  const showDidYouMean = () => {
+    if (didYouMean === undefined) {
+      return "";
+    } else {
+      return (
+        <p>
+          Did you mean{" "}
+          <a
+            href="#"
+            onClick={() => {
+              setInputSearch(didYouMean.correctedQuery);
+              setSearchCorrectedQuery(true);
+            }}
+          >
+            {didYouMean.correctedQuery}
+          </a>
+        </p>
+      );
+    }
+  };
   
   const showSearchTime = () => {
     if (searchTime === undefined) {
@@ -81,6 +80,21 @@ function App() {
       return <p>SearchTime: {searchTime.formattedSearchTime}</p>;
     }
   };
+
+    const addtofavorites = async (imageResult: items) => {
+        try {
+           await axios.post(
+            "http://localhost:3001/api/addtofavorites",
+            {
+                userName: user?.nickname,
+                imageResult: imageResult,
+              
+            }
+          );
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+    };
 
   return (
     <>
@@ -119,7 +133,13 @@ function App() {
                       />
                     </a>
                   </div>
-                  <img className="favorite-btn" src={heartimg}/>
+                  <img
+                    className="favorite-btn"
+                    src={heartimg}
+                    onClick={() => {
+                      addtofavorites(result);
+                    }}
+                  />
                 </div>
               ))}
             </section>
