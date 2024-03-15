@@ -20,26 +20,33 @@ export const Favorites = () => {
       }
     };
 
-    if (user?.nickname) {
-      fetchFavorites();
-    }
-  });
+  
+  if (user?.nickname) {
+    fetchFavorites();
+  }
+}, [user?.nickname]);
 
 return (
   <>
     {isAuthenticated ? (
       <div>
-        <h2>{user?.nickname}'s favorites</h2>
+        <h1 className="h1-favorite">{user?.nickname}'s favorites</h1>
         <div className="favorite-container">
           {userFavorites.length > 0 ? (
             userFavorites.map((favorite, index) => (
-              <div key={index} className="favorite-item">
-                <img
-                  src={favorite.url}
-                  alt={favorite.title}
-                  className="favorite-image"
-                />
-              </div>
+              <div key={index}>
+                  <a
+                    href={favorite.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      className="favorite-image"
+                      src={favorite.url}
+                      alt={favorite.title}
+                    />
+                  </a>
+                </div>
             ))
           ) : (
             <p>No favorites found.</p>
@@ -50,5 +57,5 @@ return (
       <NotFound />
     )}
   </>
-  );
+);
 }

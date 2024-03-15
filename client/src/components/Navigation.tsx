@@ -17,7 +17,7 @@ export const Navigation = () => {
           <LogoutButton />
           <div className="user-container">
             <p className="user">
-              Inloggad som <b>{user?.name}</b>{" "}
+              Inloggad som <b>{user?.nickname}</b>{" "}
               <NavLink to={"/"}>
                 <img className="user-img" src={searchimg} alt="user" />
               </NavLink>

@@ -1,6 +1,6 @@
 import { User, useAuth0 } from "@auth0/auth0-react";
 import LoginButton from "../components/LoginButton";
-import {useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import searchimg from "../img/search.png"
 import heartimg from "../img/heart.png"
@@ -10,6 +10,7 @@ import { UserAuthentication, searchInformation, spelling, items } from "../model
 function App() {
   const { isAuthenticated} = useAuth0<UserAuthentication>();
   const { user } = useAuth0<User>();
+  const {isLoading} = useAuth0();
   const [searchTime, setSearchTime] = useState<searchInformation>();
   const [didYouMean, setDidYouMean] = useState<spelling>();
   const [searchResults, setSearchResults] = useState<items[]>([]);
@@ -42,6 +43,7 @@ function App() {
     } catch (error) {
       console.error("Error during search:", error);
     }
+  
   };
 
 
@@ -96,6 +98,7 @@ function App() {
         }
     };
 
+
   return (
     <>
       {isAuthenticated ? (
@@ -110,6 +113,11 @@ function App() {
               type="text"
               value={inputSearch}
               onChange={(e) => setInputSearch(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSearch();
+                }
+              }}
               placeholder="Search image"
             />
             <button className="search-btn" onClick={handleSearch}>

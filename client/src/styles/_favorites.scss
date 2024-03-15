@@ -11,4 +11,18 @@
   height: inherit;
   padding: 5px;
   margin: 5px;
+
+  &:hover {
+    transform: scale(1.2);
+    background-color: black;
+    
+    
+  }
+}
+
+.h1-favorite {
+    background: linear-gradient(rgb(105, 211, 238), rgb(190, 46, 226));
+  background-clip: text;
+  color: transparent;
+  font-size: 35px;
 }

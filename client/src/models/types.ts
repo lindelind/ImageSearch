@@ -11,11 +11,6 @@ export interface items {
   }
 }
 
-export interface user {
-  name: string;
-  id: string;
-}
-
 export interface searchInformation {
   formattedSearchTime: string;
 }
