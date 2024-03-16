@@ -12,7 +12,7 @@ export const Favorites = () => {
     const fetchFavorites = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/api/favorites/${user?.nickname}`
+          `http://localhost:3001/api/favorites/${user?.sub}`
         );
         setUserFavorites(response.data);
       } catch (error) {

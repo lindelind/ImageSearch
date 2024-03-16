@@ -20,12 +20,14 @@ function App() {
    
   const apiKey = import.meta.env.VITE_GOOGLE_API_KEY
   const searchEngineId = import.meta.env.VITE_SEARCH_ENGINE_ID
+  
+  console.log(user)
 
 
    const handleSearch = async () => {
     try {
       const response = await axios.get(
-        `https://www.googleapis.com/customsearch/v1?q=${inputSearch}&searchType=image&key=${apiKey}&cx=${searchEngineId}`
+        `https://www.googleapis.com/customsearch/v1?q=${inputSearch}&searchType=image&num=10&key=${apiKey}&cx=${searchEngineId}`
       );
 
       if (response.status === 200) {
@@ -88,7 +90,7 @@ function App() {
            await axios.post(
             "http://localhost:3001/api/addtofavorites",
             {
-                userName: user?.nickname,
+                user: user?.sub,
                 imageResult: imageResult,
               
             }
@@ -98,12 +100,13 @@ function App() {
         }
     };
 
+    
 
   return (
     <>
       {isAuthenticated ? (
         <div>
-          <h3> Välkommen {user?.name}!</h3>
+          <h3> Välkommen {user?.nickname}!</h3>
           <h1 className="color-h1">
             Image Search <img className="search-img" src={searchimg} alt="" />
           </h1>
