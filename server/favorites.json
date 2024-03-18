@@ -37,5 +37,24 @@
         "url": "https://www.awf.org/sites/default/files/styles/species_image/public/2020-04/Website_SpeciesPage_Zebra02_Challenges.jpg?h=29c6c1f6&itok=ZglObHSp"
       }
     ]
+  },
+  "google-oauth2|105212351893197863213": {
+    "favoriteImages": [
+      {
+        "title": "Nature",
+        "byteSize": 3971863,
+        "url": "https://corporate.walmart.com/content/corporate/en_us/purpose/sustainability/planet/nature/jcr:content/par/image_2_0.img.png/1693432526985.png"
+      },
+      {
+        "title": "The Symphony of Nature: Unlocking the Hidden Benefits of Nature ...",
+        "byteSize": 305423,
+        "url": "https://images.squarespace-cdn.com/content/v1/61c4da8eb1b30a201b9669f2/1696691175374-MJY4VWB1KS8NU3DE3JK1/Sounds-of-Nature.jpg"
+      },
+      {
+        "title": "The Nature Conservancy in Europe",
+        "byteSize": 1753275,
+        "url": "https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/Zugpsitze_mountain.jpg?crop=0%2C176%2C3008%2C1654&wid=4000&hei=2200&scl=0.752"
+      }
+    ]
   }
 }
