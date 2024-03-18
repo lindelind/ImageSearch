@@ -9,6 +9,9 @@ nodemon server eller node server <br>
 
 cd client <br>
 npm i <br>
-npm run dev
+npm run dev <br>
+
+Kör sedan projektet på http://localhost:5173/
   
 </p>
+
