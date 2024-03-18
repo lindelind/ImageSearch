@@ -1,0 +1,28 @@
+
+.favorite-container {
+  margin: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.favorite-image {
+  border-radius: 30px;
+  width: 300px;
+  height: 230px;
+  object-fit: cover;
+  padding: 5px;
+  margin: 5px;
+
+  &:hover {
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  }
+}
+
+.h1-favorite {
+    background: linear-gradient(rgb(105, 211, 238), rgb(190, 46, 226));
+  background-clip: text;
+  color: transparent;
+  font-size: 35px;
+}

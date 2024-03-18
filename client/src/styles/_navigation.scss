@@ -1,0 +1,38 @@
+
+.navigation {
+  display: flex;
+  gap: 15px;
+  font-size: 20px;
+
+  a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+}
+
+}
+
+.user-img, .favorites-img {
+    width: 23px;
+    margin-left: 4px;
+
+    &:hover {
+  transform: scale(1.2);
+}
+}
+
+
+.logged-in,
+.not-logged-in {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-container {
+  position: relative;
+}
+
+.user {
+  margin: 0;
+  font-size: 15px;
+}

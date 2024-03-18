@@ -1,0 +1,46 @@
+input {
+  background-color: white;
+  border-radius: 10px;
+  padding: 5px;
+  color: black;
+  outline: none;
+  border: 2px solid black;
+  width: 280px;
+}
+
+.color-h1 {
+  background: linear-gradient(rgb(105, 211, 238), rgb(190, 46, 226));
+  background-clip: text;
+  color: transparent;
+  font-size: 45px;
+}
+
+.image {
+  border-radius: 30px;
+  width: 300px;
+  height: 230px;
+  object-fit: cover;
+  padding: 5px;
+  margin: 5px;
+  
+}
+
+#image-result {
+  margin: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.search-img {
+  width: 60px;
+}
+
+.didyoumean-result {
+  color: rgb(135, 52, 238);
+}
+
+
+.image:hover{
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
