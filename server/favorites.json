@@ -1,34 +1,40 @@
 {
-  "google-oauth2|105212351893197863213": {
-    "favoriteImages": [
-      {
-        "title": "GRIS for Nintendo Switch - Nintendo Official Site",
-        "byteSize": 127507,
-        "url": "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/en_US/games/switch/g/gris-switch/hero"
-      },
-      {
-        "title": "Milwaukee County Zoo zebra dies after running into a fence",
-        "byteSize": 98773,
-        "url": "https://www.jsonline.com/gcdn/presto/2023/05/25/PMJS/c1030882-3db2-4174-80e4-dbd50ac3842b-Zebra_AA_08-2022-0015761_E.jpg?width=660&height=990&fit=crop&format=pjpg&auto=webp"
-      },
-      {
-        "title": "Zebra - Wikipedia",
-        "byteSize": 328805,
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Plains_Zebra_Equus_quagga.jpg/800px-Plains_Zebra_Equus_quagga.jpg"
-      }
-    ]
-  },
   "github|138361525": {
     "favoriteImages": [
       {
-        "title": "White Sandwich Bread - Backerhaus Veit",
-        "byteSize": 54369,
-        "url": "https://www.backerhausveit.com/wp-content/uploads/2021/03/17783-1.jpg"
+        "title": "Horse - Wikipedia",
+        "byteSize": 78356,
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Nokota_Horses_cropped.jpg"
       },
       {
-        "title": "Amish White Bread Recipe",
-        "byteSize": 71711,
-        "url": "https://www.allrecipes.com/thmb/3Bhpg3W6sjCn0VTQ_yXLUyHr-3k=/0x512/filters:no_upscale():max_bytes(150000):strip_icc()/6788-amish-white-bread-DDMFS-4x3-6faa1e552bdb4f6eabdd7791e59b3c84.jpg"
+        "title": "Zebra | San Diego Zoo Animals & Plants",
+        "byteSize": 339145,
+        "url": "https://animals.sandiegozoo.org/sites/default/files/2016-08/hero_zebra_animals.jpg"
+      },
+      {
+        "title": "Animals & Gardens | San Diego Zoo Safari Park",
+        "byteSize": 174660,
+        "url": "https://sdzsafaripark.org/sites/default/files/styles/hero_with_nav_gradient/public/hero/hero-animals-02.jpg?itok=oAod0UPf"
+      },
+      {
+        "title": "Cheetah | Smithsonian's National Zoo and Conservation Biology ...",
+        "byteSize": 138077,
+        "url": "https://nationalzoo.si.edu/sites/default/files/styles/wide/public/animals/cheetah-003.jpg?h=c8501f53&itok=49x6VINV"
+      },
+      {
+        "title": "Listening to Nature Gives You a Real Rocky Mountain High | Science ...",
+        "byteSize": 541979,
+        "url": "https://th-thumbnailer.cdn-si-edu.com/8ciAzzKoUyvv-4kt1rLa3mLgwU0=/fit-in/1600x0/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/04/8e/048ed839-a581-48af-a0ae-fac6fec00948/gettyimages-168346757_web.jpg"
+      },
+      {
+        "title": "The Nature Conservancy in Europe",
+        "byteSize": 1753275,
+        "url": "https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/Zugpsitze_mountain.jpg?crop=0%2C176%2C3008%2C1654&wid=4000&hei=2200&scl=0.752"
+      },
+      {
+        "title": "Zebra | African Wildlife Foundation",
+        "byteSize": 49898,
+        "url": "https://www.awf.org/sites/default/files/styles/species_image/public/2020-04/Website_SpeciesPage_Zebra02_Challenges.jpg?h=29c6c1f6&itok=ZglObHSp"
       }
     ]
   }

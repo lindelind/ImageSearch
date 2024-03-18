@@ -39,8 +39,11 @@ app.post("/api/addtofavorites", async (req, res) => {
   const title  = req.body.imageResult.title;
   const url = req.body.imageResult.link;
   const byteSize = req.body.imageResult.image.byteSize;
-  const validateFavorite = favoriteSchema.validate({ title, byteSize, url });
-  console.log(validateFavorite);
+  const {error} = favoriteSchema.validate({ title, byteSize, url });
+
+  if (error){
+    res.status(400).json(error);
+  }
 
   try {
     const fileName = "favorites.json";

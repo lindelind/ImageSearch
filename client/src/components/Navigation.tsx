@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import LogoutButton from "./LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
 import searchimg from "../img/search.png";
-import heartimg from "../img/favorite.png"
+import heartimg from "../img/heart.png"
 
 export const Navigation = () => {
    const { isAuthenticated, user } = useAuth0();

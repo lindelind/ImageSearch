@@ -10,7 +10,6 @@ import { UserAuthentication, searchInformation, spelling, items } from "../model
 function App() {
   const { isAuthenticated} = useAuth0<UserAuthentication>();
   const { user } = useAuth0<User>();
-  const {isLoading} = useAuth0();
   const [searchTime, setSearchTime] = useState<searchInformation>();
   const [didYouMean, setDidYouMean] = useState<spelling>();
   const [searchResults, setSearchResults] = useState<items[]>([]);
@@ -62,8 +61,8 @@ function App() {
     } else {
       return (
         <p>
-          Did you mean{" "}
-          <a
+          Did you mean:{" "}
+          <a className="didyoumean-result"
             href="#"
             onClick={() => {
               setInputSearch(didYouMean.correctedQuery);
@@ -72,6 +71,7 @@ function App() {
           >
             {didYouMean.correctedQuery}
           </a>
+          ?
         </p>
       );
     }
@@ -126,9 +126,9 @@ function App() {
             <button className="search-btn" onClick={handleSearch}>
               Search
             </button>
-            <h3>{showDidYouMean()}</h3>
+            <h3 className="didyoumean">{showDidYouMean()}</h3>
             <p>{showSearchTime()}</p>
-            <section id="images">
+            <section id="image-result">
               {searchResults.map((result) => (
                 <div key={result.link}>
                   <div className="img-container">
